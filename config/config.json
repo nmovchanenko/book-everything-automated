@@ -1,0 +1,6 @@
+{
+  "env" : {
+    "live": "https://book-everything.herokuapp.com",
+    "local": "http://localhost:8080"
+  }
+}

@@ -1,0 +1,105 @@
+------------
+FLIGHT
+------------
+
+1. Open Flight form
+2. Pick any valid dates
+3. Fill out "from" and "to" fileds
+4. click Search
+5. click remove button
+
+expected result: result was removed from list
+
+1. Open Flight form
+2. Pick any valid dates
+3. Fill out "from" and "to" fileds
+4. click Clear button
+
+expected result: form was cleared
+
+
+1. Open Flight form
+2. Pick any valid dates
+3. Fill out "from" and "to" fileds
+4. click Show model
+5. check values
+
+expected result: values are the same with selected values
+
+
+1. Open Flight form
+2. Clear dates fields
+3. click search
+
+expected result: validation message appeared
+------------
+CARS
+------------
+
+1. Open Cars form
+2. Pick any valid dates
+3. Select any "Amenities" value
+4. Enter any "Location"
+5. click Search
+6. click remove button
+
+expected result: result was removed from list
+
+1. Open Cars form
+2. Pick any valid dates
+3. Select any "Amenities" value
+4. Enter any "Location"
+5. click Clear button
+
+expected result: form was cleared
+
+1. Open Cars form
+2. Pick any valid dates
+3. Select any "Amenities" value
+4 click Show model
+5. check values
+
+expected result: values are the same with selected values
+
+
+1. Open Cars form
+2. Clear dates fields
+3. click search
+
+expected result: validation message appeared
+
+
+------------
+HOTELS
+------------
+1. Open Hotels form
+2. Pick any valid dates
+3. Select any "Amenities" value
+4. Enter any "Location"
+5. click Search
+5. click remove button
+
+expected result: result was removed
+
+1. Open Hotels form
+2. Pick any valid dates
+3. Select any "Amenities" value
+4. Enter any "Location"
+5. click Clear button
+
+expected result: form was cleared
+
+1. Open Hotels form
+2. Pick any valid dates
+3. Select any "Amenities" value
+4. click Show model
+5. check values
+
+expected result: values are the same with selected values
+
+
+1. Open Hotels form
+2. Clear dates fields
+3. click search
+
+expected result: validation message appeared

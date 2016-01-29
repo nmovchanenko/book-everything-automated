@@ -1,0 +1,21 @@
+{
+  "name": "turvo",
+  "version": "0.0.0",
+  "description": "e2e testing turvo task",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "jasminewd2": "^0.0.6",
+    "log4js": "^0.6.26",
+    "log4js-protractor-appender": "^1.1.0",
+    "protractor": "^3.0.0",
+    "protractor-jasmine2-html-reporter": "0.0.5",
+    "selenium-webdriver": "^2.48.2",
+    "nconf": "^0.8.2"
+  },
+  "author": "n.movchanenko",
+  "license": "ISC"
+}
