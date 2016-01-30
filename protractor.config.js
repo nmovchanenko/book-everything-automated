@@ -4,15 +4,23 @@ exports.config = {
 
     baseUrl: config.get('env:live'),
 
-    specs: [
-        'test/smoke/*.js'
-    ],
+    suites: {
+        smoke: 'tests/smoke/*.js',
+        mat: 'tests/mat/*/*.js'
+    },
 
     capabilities: {
         'browserName': 'chrome'
     },
 
     allScriptsTimeout: 100000,
+
+    /*plugins: [{
+        path: 'node_modules/protractor/plugins/console',
+        failOnWarning: false,
+        failOnError: true,
+        logWarnings: false
+    }],*/
 
     framework: 'jasmine2',
 
@@ -24,6 +32,10 @@ exports.config = {
         global.logger = log4jsProtractor.getConfiguredLogger();
 
         jasmine.getEnv().addReporter(htmlReporter.getReporter());
+
+        beforeEach(function () {
+            logger.info("--- start logging test ----");
+        });
     },
 
     jasmineNodeOpts: {
