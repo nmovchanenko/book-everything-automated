@@ -1,31 +1,31 @@
-var navigation = function () {
-    var FLIGHT = "Flights",
-        CARS = "Cars",
-        HOTELS = "Hotels";
+var tabName = require("../../lib/data.enum").tabs;
 
+var navigation = function () {
     var navRoot = element(by.css(".nav.nav-tabs"));
 
     var selectMenu = function(menuName) {
+        logger.info("Navigate to '" + menuName + "' tab");
+
         return navRoot.all(by.css(" a")).filter(function(elem, index) {
             return elem.getText().then(function(text) {
                 return text === menuName;
             });
         }).then(function(filteredElements) {
-            filteredElements[0].click();
+            return filteredElements[0].click();
         });
     };
 
     return {
         openFlights(){
-            return selectMenu(FLIGHT);
+            return selectMenu(tabName.FLIGHT);
         },
 
         openHotels(){
-            return selectMenu(HOTELS);
+            return selectMenu(tabName.HOTELS);
         },
 
         openCars(){
-            return selectMenu(CARS);
+            return selectMenu(tabName.CARS);
         }
     }
 };

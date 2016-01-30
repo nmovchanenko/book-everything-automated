@@ -1,9 +1,26 @@
+var baseForm = require("./base.form")();
+
 var history = function () {
-    var historyRoot = element(by.css(".ng-valid-date.ng-valid.ng-valid-required.ng-dirty.ng-valid-date-disabled"));
+    var listOfRecords = baseForm.getActiveTab().all(by.css(" span[class='ng-binding']"));
+
+    var getRecordByIndex = function (index){
+        // TODO add error handler for listOfRecords
+        return listOfRecords.get(index);
+    };
 
     return {
-        getRecordByIndex(index){
-            return historyRoot.all(by.css(" span[class='ng-binding']")).get(index).getText();
+        getListOfRecords(){
+            return listOfRecords;
+        },
+
+        getRecordValueByIndex(index){
+            logger.info("Get the value of history record #: " + index);
+            return getRecordByIndex(index).getText();
+        },
+
+        removeRecordByIndex(index){
+            logger.info("Remove record with index #: " + index);
+            return baseForm.getActiveTab().all(by.css(" .glyphicon.glyphicon-remove.pull-right")).get(index).click();
         }
 
     }
