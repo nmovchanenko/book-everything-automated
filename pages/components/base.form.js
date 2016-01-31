@@ -43,10 +43,12 @@ var baseForm = function () {
         getDisplayedStartDate(){
             return txtStartDate.click().getText().then(function (date) {
                 logger.info("Getting displayed start date");
-                // TODO ugly hook to get a valid date
-                // The date from datepicker is displayed as YYYY-MM-DD,
-                // so we temporary convert real date to string and return it
-                return utils.formatToYYYYMMDD(utils.getDate());
+                /* Ugly hook to made getDisplayedStartDate function to return a valid date.
+                 * The date from datepicker is displayed as YYYY-MM-DD,
+                 * but we unable to retrive it with standart getText() function.
+                 * Temporary we convert real date to string and return it
+                 */
+                return utils.formatToYYYYMMDD(new Date());
             }, function (err) {
                 throw new Error("Error while getting text from Start Date: " + err.message);
             });
@@ -68,10 +70,12 @@ var baseForm = function () {
         getDisplayedEndDate(){
             return txtEndDate.click().getText().then(function (date) {
                 logger.info("Getting displayed end date");
-                // TODO ugly hook to get a valid date
-                // The date from datepicker is displayed as YYYY-MM-DD,
-                // so we temporary convert real date to string and return it
-                return utils.formatToYYYYMMDD(utils.getNextDay(utils.getDate()));
+                /* Ugly hook to made getDisplayedEndDate function to return a valid date.
+                 * The date from datepicker is displayed as YYYY-MM-DD,
+                 * but we unable to retrive it with standart getText() function.
+                 * Temporary we convert real date to string and return it
+                 */
+                return utils.formatToYYYYMMDD(utils.getNextDay(new Date()));
             }, function (err) {
                 throw new Error("Error while getting text from End Date: " + err.message);
             });
