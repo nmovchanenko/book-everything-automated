@@ -1,14 +1,14 @@
-var tabName = require("../../lib/data.enum").tabs;
+var tabName = require("../../test_data/data.enum.js").tabs;
 
-var navigation = function () {
+var navTabs = function () {
     var navRoot = element(by.css(".nav.nav-tabs"));
 
-    var selectMenu = function(menuName) {
-        logger.info("Navigate to '" + menuName + "' tab");
+    var selectTab = function(tabName) {
+        logger.info("Navigate to '" + tabName + "' tab");
 
         return navRoot.all(by.css(" a")).filter(function(elem, index) {
             return elem.getText().then(function(text) {
-                return text === menuName;
+                return text === tabName;
             });
         }).then(function(filteredElements) {
             return filteredElements[0].click();
@@ -17,17 +17,17 @@ var navigation = function () {
 
     return {
         openFlights(){
-            return selectMenu(tabName.FLIGHT);
+            return selectTab(tabName.FLIGHT);
         },
 
         openHotels(){
-            return selectMenu(tabName.HOTELS);
+            return selectTab(tabName.HOTELS);
         },
 
         openCars(){
-            return selectMenu(tabName.CARS);
+            return selectTab(tabName.CARS);
         }
     }
 };
 
-module.exports = navigation;
+module.exports = navTabs;

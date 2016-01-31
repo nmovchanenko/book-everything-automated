@@ -1,40 +1,60 @@
 ------------
 FLIGHT
 ------------
+name: check.valid.search
 
 1. Open Flight form
 2. Pick any valid dates
 3. Fill out "from" and "to" fileds
 4. click Search
-5. click remove button
+
+Expected: New history record contains entered dates and "from"-"to" values
+------------
+name: check.remove.record
+
+1. Open Flight form
+2. Pick any valid dates
+3. Fill out "from" and "to" fileds
+4. click Search
+5. click Remove button in 'Previous searches' block
 
 expected result: result was removed from list
+------------
+name: check.clear.form
 
 1. Open Flight form
 2. Pick any valid dates
 3. Fill out "from" and "to" fileds
 4. click Clear button
 
-expected result: form was cleared
-
-
-1. Open Flight form
-2. Pick any valid dates
-3. Fill out "from" and "to" fileds
-4. click Show model
-5. check values
-
-expected result: values are the same with selected values
-
+expected result: form was cleared: start and end dates are set to default, 'From' and 'To' are empty
+------------
+name: check.empty.search
 
 1. Open Flight form
 2. Clear dates fields
 3. click search
 
 expected result: validation message appeared
+
+------------
+name: check.location.dropdown.menu
+
+1. Open Flight form
+2. Type any valid values in 'From' and 'To'
+
+expected result: Should be displayed drop-down menu with 'From' and 'To' locations
 ------------
 CARS
 ------------
+
+1. Open Cars form
+2. Pick any valid dates
+3. Select any "Amenities" value
+4. Enter any "Location"
+5. click Search
+
+Expected: New record contains entered dates, "Amenities" and "Location" values
 
 1. Open Cars form
 2. Pick any valid dates
@@ -72,6 +92,18 @@ expected result: validation message appeared
 ------------
 HOTELS
 ------------
+
+Hotels
+
+1. Open Hotels form
+2. Pick any valid dates
+3. Select any "Amenities" value
+4. Enter any "Location"
+5. click Search
+
+Expected: New record contains entered dates, stars amount and "Location" values
+
+
 1. Open Hotels form
 2. Pick any valid dates
 3. Select any "Amenities" value

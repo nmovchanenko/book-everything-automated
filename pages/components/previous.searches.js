@@ -1,7 +1,8 @@
-var baseForm = require("./base.form")();
+var activeTab = require("./base.form")().getActiveTab();
 
-var history = function () {
-    var listOfRecords = baseForm.getActiveTab().all(by.css(" span[class='ng-binding']"));
+var previousSearches = function () {
+    var listOfRecords = activeTab.all(by.css(" span[class='ng-binding']"));
+    var historyBlock = activeTab.element(by.css(" .row.history.ng-scope"));
 
     var getRecordByIndex = function (index){
         // TODO add error handler for listOfRecords
@@ -20,10 +21,14 @@ var history = function () {
 
         removeRecordByIndex(index){
             logger.info("Remove record with index #: " + index);
-            return baseForm.getActiveTab().all(by.css(" .glyphicon.glyphicon-remove.pull-right")).get(index).click();
+            return activeTab.all(by.css(" .glyphicon.glyphicon-remove.pull-right")).get(index).click();
+        },
+
+        getPreviousSearchesBlock(){
+            return historyBlock;
         }
 
     }
 };
 
-module.exports = history;
+module.exports = previousSearches;

@@ -1,8 +1,8 @@
-var navBar = require('../../../pages/components/navigation')();
+var navBar = require('../../../pages/components/nav.tabs')();
 var hotelsForm = require('../../../pages/components/hotels.form')();
-var amenities = require("../../../lib/data.enum").amenities;
-var utils = require("../../../lib/data.utils")();
-var history = require('../../../pages/components/history')();
+var amenities = require("../../../test_data/data.enum.js").amenities;
+var utils = require("../../../test_data/data.utils.js")();
+var history = require('../../../pages/components/previous.searches')();
 var baseForm = require("../../../pages/components/base.form")();
 
 /**
@@ -17,9 +17,9 @@ var baseForm = require("../../../pages/components/base.form")();
 describe("Hotels: previous searches:" , function() {
 
     var startDate = new Date(),
-        endDate = utils.getTomorrowDate(startDate),
+        endDate = utils.getNextDay(startDate),
         location = "Paris",
-        fourStars = amenities.FourStars,
+        fourStars = amenities.FOUR_STARS,
         indexOfLastAddedRecord = -1,
         validHotelRecord = utils.getValidHotelRecord(startDate, endDate, location, fourStars),
         actualHotelRecord;
@@ -28,10 +28,10 @@ describe("Hotels: previous searches:" , function() {
         browser.get("/");
         navBar.openHotels();
 
-        //baseForm.selectStartDate(startDate.toISOString());
-        //baseForm.selectEndDate(endDate.toISOString());
+        baseForm.selectStartDate(startDate);
+        baseForm.selectEndDate(endDate);
 
-        hotelsForm.selectAmenities(fourStars);
+        hotelsForm.selectAmenity(fourStars);
         baseForm.fillLocation(location);
         baseForm.clickSearch();
 

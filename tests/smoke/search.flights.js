@@ -1,8 +1,8 @@
-var navBar = require('../../pages/components/navigation')();
+var navBar = require('../../pages/components/nav.tabs')();
 var flightsForm = require('../../pages/components/flights.form')();
-var history = require('../../pages/components/history')();
+var history = require('../../pages/components/previous.searches')();
 var baseForm = require("../../pages/components/base.form")();
-var utils = require("../../lib/data.utils")();
+var utils = require("../../test_data/data.utils.js")();
 
 /**
  * 1. Open Flight form
@@ -15,7 +15,7 @@ var utils = require("../../lib/data.utils")();
 describe("Flights form: " , function() {
 
     var startDate = new Date(),
-        endDate = utils.getTomorrowDate(startDate),
+        endDate = utils.getNextDay(startDate),
         cityFrom = "Moscow",
         cityTo = "London",
         indexOfLastAddedRecord = -1,
@@ -25,8 +25,8 @@ describe("Flights form: " , function() {
         browser.get("/");
         navBar.openFlights();
 
-        baseForm.selectStartDate(startDate.toISOString());
-        baseForm.selectEndDate(endDate.toISOString());
+        baseForm.selectStartDate(startDate);
+        baseForm.selectEndDate(endDate);
 
         flightsForm.fillFrom(cityFrom);
         flightsForm.fillTo(cityTo);

@@ -6,11 +6,12 @@ exports.config = {
 
     suites: {
         smoke: 'tests/smoke/*.js',
-        mat: 'tests/mat/*/*.js'
+        mat: 'tests/mat/*/*.js',
+        at: 'tests/at/*/*.js'
     },
 
     capabilities: {
-        'browserName': 'chrome'
+        'browserName': 'firefox'
     },
 
     allScriptsTimeout: 100000,

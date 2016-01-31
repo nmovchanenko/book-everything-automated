@@ -1,8 +1,8 @@
-var navBar = require('../../pages/components/navigation')();
+var navBar = require('../../pages/components/nav.tabs')();
 var carsForm = require('../../pages/components/cars.form')();
-var type = require("../../lib/data.enum").carType;
-var utils = require("../../lib/data.utils")();
-var history = require('../../pages/components/history')();
+var type = require("../../test_data/data.enum.js").carType;
+var utils = require("../../test_data/data.utils.js")();
+var history = require('../../pages/components/previous.searches')();
 var baseForm = require("../../pages/components/base.form")();
 
 /**
@@ -17,7 +17,7 @@ var baseForm = require("../../pages/components/base.form")();
 describe("Cars form: " , function() {
 
     var startDate = new Date(),
-        endDate = utils.getTomorrowDate(startDate),
+        endDate = utils.getNextDay(startDate),
         location = "Berlin",
         carType = type.ECONOMY,
         indexOfLastAddedRecord = -1,
@@ -27,8 +27,8 @@ describe("Cars form: " , function() {
         browser.get("/");
         navBar.openCars();
 
-        //baseForm.selectStartDate(startDate.toISOString());
-        //baseForm.selectEndDate(endDate.toISOString());
+        baseForm.selectStartDate(startDate);
+        baseForm.selectEndDate(endDate);
 
         carsForm.selectType(carType);
         baseForm.fillLocation(location);
