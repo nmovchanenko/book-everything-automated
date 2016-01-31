@@ -17,14 +17,7 @@ exports.config = {
     multiCapabilities: [],
 
     allScriptsTimeout: 100000,
-
-    /*plugins: [{
-        path: 'node_modules/protractor/plugins/console',
-        failOnWarning: false,
-        failOnError: true,
-        logWarnings: false
-    }],*/
-
+    
     framework: 'jasmine2',
 
     onPrepare: function() {
