@@ -1,9 +1,9 @@
-var navBar = require('../../../pages/components/nav.tabs')();
-var hotelsForm = require('../../../pages/components/hotels.form')();
-var amenities = require("../../../test_data/data.enum.js").amenities;
-var utils = require("../../../test_data/data.utils.js")();
-var history = require('../../../pages/components/previous.searches')();
-var baseForm = require("../../../pages/components/base.form")();
+var navBar = require('../../../pages/components/nav.tabs')(),
+    hotelsForm = require('../../../pages/components/hotels.form')(),
+    amenities = require("../../../test_data/data.enum.js").amenities,
+    utils = require("../../../test_data/data.utils.js")(),
+    history = require('../../../pages/components/previous.searches')(),
+    baseForm = require("../../../pages/components/base.form")();
 
 /**
  * 1. Open Hotels form
@@ -14,7 +14,7 @@ var baseForm = require("../../../pages/components/base.form")();
  *
  * Expected: New record contains entered dates, stars amount and "Location" values
  */
-describe("Hotels: previous searches:" , function() {
+describe("Hotels: previous searches: new record " , function() {
 
     var startDate = new Date(),
         endDate = utils.getNextDay(startDate),

@@ -12,7 +12,7 @@ var utils = require("../../../test_data/data.utils.js")();
  *
  * Expected Result: New record contains entered dates and "from"-"to" values
  */
-describe("Flights: previous searches: " , function() {
+describe("Flights: previous searches: new record " , function() {
 
     var startDate = new Date(),
         endDate = utils.getNextDay(startDate),

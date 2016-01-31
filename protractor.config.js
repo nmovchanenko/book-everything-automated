@@ -11,8 +11,10 @@ exports.config = {
     },
 
     capabilities: {
-        'browserName': 'firefox'
+        browserName: 'chrome'
     },
+
+    multiCapabilities: [],
 
     allScriptsTimeout: 100000,
 
@@ -29,14 +31,21 @@ exports.config = {
         var htmlReporter = require('./lib/htmlReporter.js')(),
             log4jsProtractor = require('./lib/log4jsProtractor.js')();
 
-        // define custom configured logger as global
+        // define configured logger as global
         global.logger = log4jsProtractor.getConfiguredLogger();
 
         jasmine.getEnv().addReporter(htmlReporter.getReporter());
 
         beforeEach(function () {
-            logger.info("--- start logging test ----");
+            logger.info("--- start test ----");
         });
+    },
+
+    params: {
+        login: {
+            user: 'Jane',
+            password: '1234'
+        }
     },
 
     jasmineNodeOpts: {

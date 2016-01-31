@@ -14,7 +14,7 @@ var baseForm = require("../../../pages/components/base.form")();
  *
  * Expected: New record contains entered dates, "Amenities" and "Location" values
  */
-describe("Cars: previous searches: " , function() {
+describe("Cars: previous searches: new record " , function() {
 
     var startDate = new Date(),
         endDate = utils.getNextDay(startDate),
