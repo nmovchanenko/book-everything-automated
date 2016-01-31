@@ -1,6 +1,17 @@
 var utils = require("./data.utils.js")();
 
 var EMPTY_INPUT = "";
+
+var getStarsAmount = function (amount) {
+    // "★" is equal to "\u2605";
+    var starSymbol = "\u2605";
+    var stars = "";
+    for (var i = 0; i < amount; i++) {
+        stars += starSymbol;
+    }
+    return stars;
+};
+
 // we need today and tomorrow dates represented as string YYYY-MM-DD
 var TODAY_DATE = utils.formatToYYYYMMDD(new Date());
 var TOMORROW_DATE = utils.formatToYYYYMMDD(utils.getNextDay(new Date()));
@@ -18,23 +29,23 @@ module.exports.carType = {
 };
 
 module.exports.amenities = {
-    "FIVE_STARS" : "★★★★★ 5 stars",
-    "FOUR_STARS" : "★★★★ 4 stars and higher",
-    "THREE_STARS": "★★★ 3 stars and higher",
-    "TWO_STARS"  : "★★ 2 stars and higher",
+    "FIVE_STARS" : getStarsAmount(5) + " 5 stars",
+    "FOUR_STARS" : getStarsAmount(4) + " 4 stars and higher",
+    "THREE_STARS": getStarsAmount(3) + " 3 stars and higher",
+    "TWO_STARS"  : getStarsAmount(2) + " 2 stars and higher",
     getStars: function(stars) {
         switch (stars) {
             case this.FIVE_STARS:
-                return "★★★★★";
+                return getStarsAmount(5);
                 break;
             case this.FOUR_STARS:
-                return "★★★★";
+                return getStarsAmount(4);
                 break;
             case this.THREE_STARS:
-                return "★★★";
+                return getStarsAmount(3);
                 break;
             case this.TWO_STARS:
-                return "★★";
+                return getStarsAmount(2);
                 break;
             default:
                 return "no stars";
@@ -66,12 +77,12 @@ module.exports.defaultInputs = {
 
 module.exports.labels = {
     "FLIGHTS": {
-        fromInput   : "From",
-        toInput     : "To"
+        fromInput           : "From",
+        toInput             : "To"
     },
     "CARS": {
-        typeDropdown    : "Type",
-        locationInput   : "Location"
+        typeDropdown        : "Type",
+        locationInput       : "Location"
     },
     "HOTELS": {
         amenitiesDropdown   : "Amenities",

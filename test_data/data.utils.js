@@ -1,29 +1,31 @@
 var dataEnum = require("./data.enum.js");
 
 var utils = function() {
-    var incorrectDateMessage = "Date was not found. Pass a valid Date object";
-    var defaultDate = new Date();
-    var monthStrings = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-    ];
+    var carSymbol = "\uD83D\uDE97",
+        flightSymbol = "\u2708",
+        defaultDate = new Date(),
+        incorrectDateMessage = "Date was not found. Pass a valid Date object",
+        monthStrings = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"
+        ];
 
     var numericYear = function (date) {
         return date.getFullYear().toString();
     };
 
     var numericMonth = function (date) {
-        var mm = (date.getMonth()+1).toString();
+        var mm = (date.getMonth() + 1).toString();
         return mm[1] ? mm : "0" + mm[0];
     };
 
@@ -34,7 +36,7 @@ var utils = function() {
 
     var getCommonHistoryRecord = function (startDate, endDate) {
         if (!startDate || !endDate) throw new Error(incorrectDateMessage);
-        // each history record use pattern:
+        // each history record uses pattern:
         // 'StartDate.Month.long' 'StartDate.Day.numeric' - 'EndDate.Month.long' 'EndDate.Day.numeric',
         // e.g.: January 31 - February 01,
         return monthStrings[startDate.getMonth()] + " " +
@@ -46,11 +48,11 @@ var utils = function() {
     return {
 
         getValidCarsRecord (startDate, endDate, location, carType){
-            return getCommonHistoryRecord(startDate, endDate) + location + " ? " + carType;
+            return getCommonHistoryRecord(startDate, endDate) + location + " " + carSymbol + " " + carType;
         },
 
         getValidFlightsRecord (startDate, endDate, cityFrom, cityTo){
-            return getCommonHistoryRecord(startDate, endDate) + cityFrom + " ✈ " + cityTo;
+            return getCommonHistoryRecord(startDate, endDate) + cityFrom + " " + flightSymbol + " " + cityTo;
         },
 
         getValidHotelRecord (startDate, endDate, location, starsAmount) {
