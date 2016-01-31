@@ -5,7 +5,6 @@ var previousSearches = function () {
     var historyBlock = activeTab.element(by.css(" .row.history.ng-scope"));
 
     var getRecordByIndex = function (index){
-        // TODO add error handler for listOfRecords
         return listOfRecords.get(index);
     };
 

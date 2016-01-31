@@ -15,8 +15,11 @@ var baseForm = function () {
     var btnSearch = activeTab.element(by.css(".btn.btn-primary"));
 
     var closeDatepicker = function () {
-        logger.info("Close datepicker");
-        return btnCloseDate.click();
+        return btnCloseDate.click().then(function () {
+            logger.info("Close datepicker");
+        }, function (err) {
+            throw new Error("Error while closing Date Picker: " + err.message);
+        });
     };
 
     return {
@@ -28,18 +31,24 @@ var baseForm = function () {
             // before typing a date we need to format it to string YYYY-MM-DD
             var formattedDate = utils.formatToYYYYMMDD(date);
 
-            logger.info("Select start date: " + formattedDate);
-            this.clearStartDate();
-            return txtStartDate.sendKeys(formattedDate);
+            return this.clearStartDate().then(function () {
+                return txtStartDate.sendKeys(formattedDate).then(function () {
+                    logger.info("Typing start date: " + formattedDate);
+                }, function () {
+                    throw new Error("Error while typing Start Date: " + err.message);
+                });
+            });
         },
 
         getDisplayedStartDate(){
-            logger.info("Get displayed start date");
             return txtStartDate.click().getText().then(function (date) {
+                logger.info("Getting displayed start date");
                 // TODO ugly hook to get a valid date
                 // The date from datepicker is displayed as YYYY-MM-DD,
-                // so we temporary convert valid date to string and return it
+                // so we temporary convert real date to string and return it
                 return utils.formatToYYYYMMDD(utils.getDate());
+            }, function (err) {
+                throw new Error("Error while getting text from Start Date: " + err.message);
             });
         },
 
@@ -47,52 +56,72 @@ var baseForm = function () {
             // before typing a date we need to format it to string YYYY-MM-DD
             var formattedDate = utils.formatToYYYYMMDD(date);
 
-            logger.info("Select end date: " + formattedDate);
             return this.clearEndDate().then(function () {
-                return txtEndDate.sendKeys(formattedDate);
+                return txtEndDate.sendKeys(formattedDate).then(function () {
+                    logger.info("Typing end date: " + formattedDate);
+                }, function (err) {
+                    throw new Error("Error while typing End Date: " + err.message);
+                });
             });
         },
 
         getDisplayedEndDate(){
-            logger.info("Get displayed end date");
             return txtEndDate.click().getText().then(function (date) {
+                logger.info("Getting displayed end date");
                 // TODO ugly hook to get a valid date
                 // The date from datepicker is displayed as YYYY-MM-DD,
-                // so we temporary convert valid date to string and return it
+                // so we temporary convert real date to string and return it
                 return utils.formatToYYYYMMDD(utils.getNextDay(utils.getDate()));
+            }, function (err) {
+                throw new Error("Error while getting text from End Date: " + err.message);
             });
         },
 
         fillLocation(location){
-            logger.info("Fill in 'Location': " + location);
-            return txtLocation.sendKeys(location);
+            return txtLocation.sendKeys(location).then(function() {
+                logger.info("Typing text in 'Location': " + location);
+            }, function (err) {
+                throw new Error("Error while typing text in 'Location': " + err.message);
+            });
         },
 
         clickSearch(){
-            logger.info("Click 'Search' button");
-            return btnSearch.click();
+            return btnSearch.click().then(function() {
+                logger.info("Click 'Search' button");
+            }, function (err) {
+                throw new Error("Error while clicking Search button: " + err.message);
+            });
         },
 
         clearForm(){
-            logger.info("Click 'Clear' button");
-            return btnClear.click();
+            return btnClear.click().then(function () {
+                logger.info("Click 'Clear' button");
+            }, function (err) {
+                throw new Error("Error while clicking 'Clear' button: " + err.message);
+            });
         },
 
         clearStartDate(){
-            logger.info("Click 'Start Date' field");
             return txtStartDate.click().then(function () {
+                logger.info("Click 'Start Date' field");
                 closeDatepicker();
-                logger.info("Clear 'Start Date'");
-                return txtStartDate.clear();
+                return txtStartDate.clear().then(function () {
+                    logger.info("Clearing 'Start Date'");
+                }, function (err) {
+                    throw new Error("Error while clearing start date: " + err.message);
+                });
             });
         },
 
         clearEndDate(){
-            logger.info("Click 'End Date' field");
             return txtEndDate.click().then(function () {
+                logger.info("Click 'End Date' field");
                 closeDatepicker();
-                logger.info("Clear 'End Date' field");
-                return txtEndDate.clear();
+                return txtEndDate.clear().then(function () {
+                    logger.info("Clearing 'End Date' field");
+                }, function (err) {
+                    throw new Error("Error while clearing end date: " + err.message);
+                });
             });
         }
     }

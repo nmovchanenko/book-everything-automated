@@ -14,13 +14,19 @@ var flightsForm = function () {
 
     return {
         fillFrom(cityFrom){
-            logger.info("Type text in 'From': " + cityFrom);
-            return txtCityFrom.sendKeys(cityFrom);
+            return txtCityFrom.sendKeys(cityFrom).then(function() {
+                logger.info("Typing text in 'From': " + cityFrom);
+            }, function(err) {
+                throw new Error("Error while typing in 'From': " + err.message);
+            });
         },
 
         fillTo(cityTo){
-            logger.info("Type text in 'To': " + cityTo);
-            return txtCityTo.sendKeys(cityTo);
+            return txtCityTo.sendKeys(cityTo).then(function() {
+                logger.info("Typing text in 'To': " + cityTo);
+            }, function (err) {
+                throw new Error("Error while typing in 'To': " + err.message);
+            });
         },
 
         getEnteredValues(){
@@ -30,16 +36,20 @@ var flightsForm = function () {
                 actualValues.startDate = start;
             });
 
-            baseForm.getDisplayedEndDate().then(function (end) {
+            baseForm.getDisplayedEndDate().then(function(end) {
                 actualValues.endDate = end;
             });
 
-            txtCityFrom.getText().then(function (cityFromValue) {
+            txtCityFrom.getText().then(function(cityFromValue) {
                 actualValues.cityFrom = cityFromValue;
+            }, function (err) {
+                throw new Error("Error while getting text from 'From' input: " + err.message);
             });
 
             txtCityTo.getText().then(function (cityToValue) {
                 actualValues.cityTo = cityToValue;
+            }, function (err) {
+                throw new Error("Error while getting text from 'To' input: " + err.message);
             });
 
             return actualValues;
@@ -48,12 +58,16 @@ var flightsForm = function () {
         getDisplayedLabels(){
             var labels = {};
 
-            labelFrom.getText().then(function (text) {
+            labelFrom.getText().then(function(text) {
                 labels.fromInput = text;
+            }, function(err) {
+                throw new Error("Error while getting text from 'From label': " + err.message);
             });
 
-            labelTo.getText().then(function (text) {
+            labelTo.getText().then(function(text) {
                 labels.toInput = text;
+            }, function (err) {
+                throw new Error("Error while getting text from 'To label': " + err.message);
             });
 
             return labels;
