@@ -1,8 +1,8 @@
-var navBar = require('../../../pages/components/nav.tabs')();
-var flightsForm = require('../../../pages/components/flights.form')();
-var history = require('../../../pages/components/previous.searches')();
-var baseForm = require("../../../pages/components/base.form")();
-var utils = require("../../../test_data/data.utils.js")();
+var navBar = require('../../../pages/components/nav.tabs')(),
+    flightsForm = require('../../../pages/components/flights.form')(),
+    history = require('../../../pages/components/previous.searches')(),
+    baseForm = require("../../../pages/components/base.form")(),
+    utils = require("../../../test_data/data.utils.js")();
 
 /**
  * 1. Open Flight form
@@ -14,7 +14,6 @@ var utils = require("../../../test_data/data.utils.js")();
  * expected result: result was removed from list
  */
 describe("Flights: previous searches: " , function() {
-
     var startDate = new Date(),
         endDate = utils.getNextDay(startDate),
         cityFrom = "Moscow",

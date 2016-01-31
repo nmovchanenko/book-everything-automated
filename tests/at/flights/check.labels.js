@@ -1,7 +1,7 @@
-var navBar = require('../../../pages/components/nav.tabs')();
-var flightsForm = require('../../../pages/components/flights.form')();
-var utils = require("../../../test_data/data.utils.js")();
-var labels = require("../../../test_data/data.enum.js").labels;
+var navBar = require('../../../pages/components/nav.tabs')(),
+    flightsForm = require('../../../pages/components/flights.form')(),
+    utils = require("../../../test_data/data.utils.js")(),
+    labels = require("../../../test_data/data.enum.js").labels;
 
 /**
  * 1. Open Flights form

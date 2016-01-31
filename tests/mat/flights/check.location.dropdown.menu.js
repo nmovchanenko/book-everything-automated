@@ -1,6 +1,6 @@
-var navBar = require('../../../pages/components/nav.tabs')();
-var flightsForm = require('../../../pages/components/flights.form')();
-var utils = require("../../../test_data/data.utils.js")();
+var navBar = require('../../../pages/components/nav.tabs')(),
+    flightsForm = require('../../../pages/components/flights.form')(),
+    utils = require("../../../test_data/data.utils.js")();
 
 /**
  * 1. Open Flight form
@@ -9,7 +9,6 @@ var utils = require("../../../test_data/data.utils.js")();
  * expected result: Should be displayed drop-down menu with locations
  */
 describe("Flights form: " , function() {
-
     var cityFrom = "Rome",
         cityTo = "Madrid";
 

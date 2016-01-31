@@ -1,8 +1,8 @@
-var navBar = require('../../../pages/components/nav.tabs')();
-var flightsForm = require('../../../pages/components/flights.form')();
-var baseForm = require("../../../pages/components/base.form")();
-var utils = require("../../../test_data/data.utils.js")();
-var defaults = require("../../../test_data/data.enum.js").defaultInputs;
+var navBar = require('../../../pages/components/nav.tabs')(),
+    flightsForm = require('../../../pages/components/flights.form')(),
+    baseForm = require("../../../pages/components/base.form")(),
+    utils = require("../../../test_data/data.utils.js")(),
+    defaults = require("../../../test_data/data.enum.js").defaultInputs;
 
 /**
  * 1. Open Flight form
@@ -13,7 +13,6 @@ var defaults = require("../../../test_data/data.enum.js").defaultInputs;
  * expected result: form was cleared - start and end dates are set to default, 'From' and 'To' are empty
  */
 describe("Flights: clear form: " , function() {
-
     var today = new Date(),
         startDate = utils.getNextDay(today),
         endDate = utils.getNextDay(startDate),

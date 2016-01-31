@@ -1,9 +1,9 @@
-var navBar = require('../../pages/components/nav.tabs')();
-var carsForm = require('../../pages/components/cars.form')();
-var type = require("../../test_data/data.enum.js").carType;
-var utils = require("../../test_data/data.utils.js")();
-var history = require('../../pages/components/previous.searches')();
-var baseForm = require("../../pages/components/base.form")();
+var navBar = require('../../pages/components/nav.tabs')(),
+    carsForm = require('../../pages/components/cars.form')(),
+    type = require("../../test_data/data.enum.js").carType,
+    utils = require("../../test_data/data.utils.js")(),
+    history = require('../../pages/components/previous.searches')(),
+    baseForm = require("../../pages/components/base.form")();
 
 /**
  * 1. Open Cars form

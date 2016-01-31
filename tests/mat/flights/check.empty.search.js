@@ -1,7 +1,7 @@
-var navBar = require('../../../pages/components/nav.tabs')();
-var baseForm = require("../../../pages/components/base.form")();
-var utils = require("../../../test_data/data.utils.js")();
-var history = require('../../../pages/components/previous.searches')();
+var navBar = require('../../../pages/components/nav.tabs')(),
+    baseForm = require("../../../pages/components/base.form")(),
+    utils = require("../../../test_data/data.utils.js")(),
+    history = require('../../../pages/components/previous.searches')();
 
 /**
  * 1. Open Flight form
