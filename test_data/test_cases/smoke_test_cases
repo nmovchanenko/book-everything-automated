@@ -2,7 +2,7 @@ Flights
 
 1. Open Flight form
 2. Pick any valid dates
-3. Fill out "from" and "to" fileds
+3. Fill out "from" and "to" fields
 4. click Search
 
 Expected: New record added to "Previous Searches" block. Record contains entered dates and "from"-"to" values

@@ -31,46 +31,52 @@ var flightsForm = function () {
 
         getEnteredValues(){
             var actualValues = {};
-
-            baseForm.getDisplayedStartDate().then(function(start) {
-                actualValues.startDate = start;
-            });
-
-            baseForm.getDisplayedEndDate().then(function(end) {
-                actualValues.endDate = end;
-            });
-
-            txtCityFrom.getText().then(function(cityFromValue) {
-                actualValues.cityFrom = cityFromValue;
-            }, function (err) {
-                throw new Error("Error while getting text from 'From' input: " + err.message);
-            });
-
-            txtCityTo.getText().then(function (cityToValue) {
-                actualValues.cityTo = cityToValue;
-            }, function (err) {
-                throw new Error("Error while getting text from 'To' input: " + err.message);
-            });
-
-            return actualValues;
+            var setStartDate = function () {
+                return baseForm.getDisplayedStartDate().then(function(start) {
+                    actualValues.startDate = start;
+                });
+            };
+            var setEndDate = function () {
+                return baseForm.getDisplayedEndDate().then(function(end) {
+                    actualValues.endDate = end;
+                });
+            };
+            var setCityFrom = function () {
+                return txtCityFrom.getText().then(function(cityFromValue) {
+                    actualValues.cityFrom = cityFromValue;
+                });
+            };
+            var setCityTo = function () {
+                return txtCityTo.getText().then(function (cityToValue) {
+                    actualValues.cityTo = cityToValue;
+                });
+            };
+            return setStartDate()
+                .then(setEndDate)
+                .then(setCityFrom)
+                .then(setCityTo)
+                .then(function() {
+                    return actualValues;
+                });
         },
 
         getDisplayedLabels(){
             var labels = {};
-
-            labelFrom.getText().then(function(text) {
-                labels.fromInput = text;
-            }, function(err) {
-                throw new Error("Error while getting text from 'From label': " + err.message);
-            });
-
-            labelTo.getText().then(function(text) {
-                labels.toInput = text;
-            }, function (err) {
-                throw new Error("Error while getting text from 'To label': " + err.message);
-            });
-
-            return labels;
+            var setLabelFrom = function () {
+                return labelFrom.getText().then(function(text) {
+                    labels.fromInput = text;
+                });
+            };
+            var setLabelTo = function () {
+                return labelTo.getText().then(function(text) {
+                    labels.toInput = text;
+                });
+            };
+            return setLabelFrom()
+                .then(setLabelTo)
+                .then(function () {
+                    return labels;
+            })
         },
 
         getListboxOptionsFrom(){

@@ -19,8 +19,8 @@ describe("Cars: previous searches: new record " , function() {
     var startDate = new Date(),
         endDate = utils.getNextDay(startDate),
         location = "Berlin",
-        carType = type.REASONABLE,
-        expectedCarsRecord = utils.getValidCarsRecord(startDate, endDate, location, carType),
+        reasonable = type.REASONABLE,
+        expectedCarsRecord = utils.getValidCarsRecord(startDate, endDate, location, reasonable),
         indexOfLastAddedRecord = -1,
         actualCarsRecord;
 
@@ -31,7 +31,7 @@ describe("Cars: previous searches: new record " , function() {
         baseForm.selectStartDate(startDate);
         baseForm.selectEndDate(endDate);
 
-        carsForm.selectType(carType);
+        carsForm.selectType(reasonable);
         baseForm.fillLocation(location);
         baseForm.clickSearch();
 

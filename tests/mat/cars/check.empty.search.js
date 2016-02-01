@@ -3,17 +3,17 @@ var navBar = require('../../../pages/components/nav.tabs')(),
     history = require('../../../pages/components/previous.searches')();
 
 /**
- * 1. Open Flight form
+ * 1. Open Cars form
  * 2. Clear dates fields
- * 3. click search
+ * 3. Click Search
  *
- * expected result: new record should not be added to the Previous searches
+ * expected result: validation message appeared
  */
-describe("Flights: previous searches: " , function() {
+describe("Cars: previous searches: " , function() {
 
     it("should not be possible to add new records with empty fields", function() {
         browser.get("/");
-        navBar.openFlights();
+        navBar.openCars();
 
         baseForm.clearStartDate();
         baseForm.clearEndDate();

@@ -36,7 +36,7 @@ var utils = function() {
 
     var getCommonHistoryRecord = function (startDate, endDate) {
         if (!startDate || !endDate) throw new Error(incorrectDateMessage);
-        // each history record uses pattern:
+        // each history record uses common pattern:
         // 'StartDate.Month.long' 'StartDate.Day.numeric' - 'EndDate.Month.long' 'EndDate.Day.numeric',
         // e.g.: January 31 - February 01,
         return monthStrings[startDate.getMonth()] + " " +

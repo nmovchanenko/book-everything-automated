@@ -9,7 +9,7 @@ var navBar = require('../../../pages/components/nav.tabs')(),
  * 2. Set Start Date < End Date
  * 3. Click Search
  *
- * expected result: New record should no be added to the Previous searches
+ * expected result: New record should not be added to the Previous searches
  */
 describe("Flights: previous searches:" , function() {
 

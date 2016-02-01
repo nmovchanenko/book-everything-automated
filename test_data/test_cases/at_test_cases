@@ -1,52 +1,64 @@
 ------------
 FLIGHT
 ------------
-name: check.search.invalid.date
+        name: check.search.invalid.date
 
-1. Open Flights form
-2. Set Start Date < End Date
-3. Click Search
+            1. Open Flights form
+            2. Set Start Date < End Date
+            3. Click Search
 
-expected result: New record should no be added to the Previous searches
-------------
-name: check.search.invalid.destination
+            expected result: New record should no be added to the Previous searches
+        ------------
+        name: check.search.invalid.destination
 
-1. Open Flights form
-2. Type invalid values into 'From' and 'To'
-3. Click Search
+            1. Open Flights form
+            2. Type invalid values into 'From' and 'To'
+            3. Click Search
 
-expected result: New record should no be added to the Previous searches
+            expected result: New record should no be added to the Previous searches
+        ------------
+        name: check.labels
 
-------------
-name: check.labels
+            1. Open Flights form
+            2. Check flights specific labels
 
-1. Open Flights form
-2. Check flights specific labels
-
-expected result: Flights specific labels: From, To
+            expected result: Flights specific labels: From, To
 ------------
 CARS
 ------------
+         name: check.search.invalid.date
 
+            1. Open Cars form
+            2. Set Start Date < End Date
+            3. Click Search
 
-------------
-name: check.labels
+            expected result: New record should no be added to the Previous searches
+        ------------
+        name: check.search.invalid.destination
 
-1. Open Cars form
-2. Check cars specific labels
+            1. Open Cars form
+            2. Type invalid value to 'Location'
+            3. Click Search
 
-expected result: Cars specific labels: Type, Location
+            expected result: New record should no be added to the Previous searches
+        ------------
+        name: check.labels
+
+            1. Open Cars form
+            2. Check cars specific labels
+
+            expected result: Cars specific labels: Type, Location
 ------------
 HOTELS
 ------------
-name: check.search.invalid.date
+        name: check.search.invalid.date
 
 
 
-------------
-name: check.labels
+        ------------
+            name: check.labels
 
-1. Open Hotels form
-2. Check hotels specific labels
+            1. Open Hotels form
+            2. Check hotels specific labels
 
-expected result: Hotels specific labels: Amenities, Location
+            expected result: Hotels specific labels: Amenities, Location

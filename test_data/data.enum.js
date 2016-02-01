@@ -70,7 +70,7 @@ module.exports.defaultInputs = {
     HOTELS: {
         startDate   : TODAY_DATE,
         endDate     : TOMORROW_DATE,
-        type        : this.amenities.THREE_STARS,
+        amenity     : this.amenities.THREE_STARS,
         location    : EMPTY_INPUT
     }
 };
@@ -85,7 +85,7 @@ module.exports.labels = {
         locationInput       : "Location"
     },
     "HOTELS": {
-        amenitiesDropdown   : "Amenities",
+        amenityDropdown     : "Amenities",
         locationInput       : "Location"
     }
 };

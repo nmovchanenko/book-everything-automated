@@ -45,8 +45,8 @@ var baseForm = function () {
                 logger.info("Getting displayed start date");
                 /* Ugly hook to made getDisplayedStartDate function to return a valid date.
                  * The date from datepicker is displayed as YYYY-MM-DD,
-                 * but we unable to retrive it with standart getText() function.
-                 * Temporary we convert real date to string and return it
+                 * but we unable to retrieve it with standart getText() function.
+                 * So we convert real date to string and return it
                  */
                 return utils.formatToYYYYMMDD(new Date());
             }, function (err) {
@@ -72,8 +72,8 @@ var baseForm = function () {
                 logger.info("Getting displayed end date");
                 /* Ugly hook to made getDisplayedEndDate function to return a valid date.
                  * The date from datepicker is displayed as YYYY-MM-DD,
-                 * but we unable to retrive it with standart getText() function.
-                 * Temporary we convert real date to string and return it
+                 * but we unable to retrieve it with standart getText() function.
+                 * So we convert real date to string and return it
                  */
                 return utils.formatToYYYYMMDD(utils.getNextDay(new Date()));
             }, function (err) {
