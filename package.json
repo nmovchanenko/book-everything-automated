@@ -1,10 +1,11 @@
 {
-  "name": "turvo",
+  "name": "book-everything-automated",
   "version": "0.0.0",
-  "description": "e2e testing turvo task",
+  "description": "e2e test book-everything",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "webdriver-manager update",
+    "test": "protractor protractor.config"
   },
   "devDependencies": {
     "jasmine": "^2.4.1",

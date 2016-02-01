@@ -11,6 +11,8 @@ var carsForm = function () {
 
     var getSelectedType = function () {
         return lstType.getText().then(function (text) {
+            // currently unable to get text from selected option,
+            // return a default value
             return "Economy";
         })
     };

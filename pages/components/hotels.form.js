@@ -10,6 +10,8 @@ var hotelsForm = function () {
 
     var getSelectedAmenity = function() {
         return lstAmenity.getText().then(function (text) {
+            // currently unable to get text from selected option,
+            // return a default value
             return amenities.THREE_STARS;
         })
     };

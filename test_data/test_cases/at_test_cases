@@ -23,6 +23,14 @@ FLIGHT
             2. Check flights specific labels
 
             expected result: Flights specific labels: From, To
+        ------------
+        name. check.multiple.searches
+
+            1. Open Flights form
+            2. Fill out fields with valid data
+            3.
+
+            expected result:
 ------------
 CARS
 ------------
@@ -48,6 +56,14 @@ CARS
             2. Check cars specific labels
 
             expected result: Cars specific labels: Type, Location
+        ------------
+        name. check.multiple.searches
+
+            1. Open Flights form
+            2. Fill out fields with valid data
+            3.
+
+            expected result:
 ------------
 HOTELS
 ------------
@@ -73,3 +89,11 @@ HOTELS
             2. Check hotels specific labels
 
             expected result: Hotels specific labels: Amenities, Location
+        ------------
+        name. check.multiple.searches
+
+            1. Open Flights form
+            2. Fill out fields with valid data
+            3.
+
+            expected result:

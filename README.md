@@ -1,19 +1,14 @@
-1.  Install Protractor globally:
-
-        npm install -g protractor
-
-2. Install dependencies:
+1. Install dependencies:
 
         npm install
 
-3. Download webdrivers:
+2. Run tests:
 
-        webdriver-manager update
+        npm run test
 
-4. Run tests:
+Test report with screenshots:
 
-        protractor protractor.config.js
-
+        ./reports/htmlReport.html
 
 Test cases:
 
