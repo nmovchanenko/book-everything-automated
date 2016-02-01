@@ -5,6 +5,8 @@ var baseForm = require("./base.form")(),
 var hotelsForm = function () {
     var lstAmenity = element(by.id("ratings"));
     var txtLocation = activeTab.element(by.css(" input[placeholder='Location']"));
+    var labelLocation = activeTab.element(by.css(" [title='Location'] label"));
+    var labelAmenity = element(by.css("label[for='ratings']"));
 
     var getSelectedAmenity = function() {
         return lstAmenity.getText().then(function (text) {
@@ -22,6 +24,25 @@ var hotelsForm = function () {
                     throw new Error("Error while selecting amenity: " + err.message);
                 });
             });
+        },
+
+        getDisplayedLabels(){
+            var labels = {};
+            var setAmenityLabel = function () {
+                return labelAmenity.getText().then(function(text) {
+                    labels.amenity = text;
+                });
+            };
+            var setLocationLabel = function () {
+                return labelLocation.getText().then(function(text) {
+                    labels.location = text;
+                });
+            };
+            return setAmenityLabel()
+                .then(setLocationLabel)
+                .then(function () {
+                    return labels;
+                })
         },
 
         getEnteredValues(){

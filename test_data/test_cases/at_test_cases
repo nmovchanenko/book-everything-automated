@@ -53,10 +53,21 @@ HOTELS
 ------------
         name: check.search.invalid.date
 
+            1. Open Hotels form
+            2. Set Start Date < End Date
+            3. Click Search
 
-
+            expected result: New record should no be added to the Previous searches
         ------------
-            name: check.labels
+        name: check.search.invalid.destination
+
+            1. Open Hotels form
+            2. Type invalid value to 'Location'
+            3. Click Search
+
+            expected result: New record should no be added to the Previous searches
+        ------------
+        name: check.labels
 
             1. Open Hotels form
             2. Check hotels specific labels

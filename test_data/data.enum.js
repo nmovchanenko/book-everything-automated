@@ -3,7 +3,7 @@ var utils = require("./data.utils.js")();
 var EMPTY_INPUT = "";
 
 var getStarsAmount = function (amount) {
-    // "★" is equal to "\u2605";
+    // "★" symbol;
     var starSymbol = "\u2605";
     var stars = "";
     for (var i = 0; i < amount; i++) {
@@ -77,15 +77,15 @@ module.exports.defaultInputs = {
 
 module.exports.labels = {
     "FLIGHTS": {
-        fromInput           : "From",
-        toInput             : "To"
+        cityFrom    : "From",
+        cityTo      : "To"
     },
     "CARS": {
-        typeDropdown        : "Type",
-        locationInput       : "Location"
+        type        : "Type",
+        location    : "Location"
     },
     "HOTELS": {
-        amenityDropdown     : "Amenities",
-        locationInput       : "Location"
+        amenity     : "Amenities",
+        location    : "Location"
     }
 };

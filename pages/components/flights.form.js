@@ -64,12 +64,12 @@ var flightsForm = function () {
             var labels = {};
             var setLabelFrom = function () {
                 return labelFrom.getText().then(function(text) {
-                    labels.fromInput = text;
+                    labels.cityFrom = text;
                 });
             };
             var setLabelTo = function () {
                 return labelTo.getText().then(function(text) {
-                    labels.toInput = text;
+                    labels.cityTo = text;
                 });
             };
             return setLabelFrom()

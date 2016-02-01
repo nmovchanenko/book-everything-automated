@@ -6,6 +6,8 @@ var carsForm = function () {
     var lstType = element(by.id("type"));
     var txtLocation = activeTab.element(by.css(" input[placeholder='Location']"));
     var locationDropdown = activeTab.element(by.css(" [title='Location'] .dropdown-menu.ng-isolate-scope"));
+    var labelLocation = activeTab.element(by.css(" [title='Location'] label"));
+    var labelType = element(by.css("label[for='type']"));
 
     var getSelectedType = function () {
         return lstType.getText().then(function (text) {
@@ -26,6 +28,25 @@ var carsForm = function () {
 
         getLocationDropdown(){
             return locationDropdown;
+        },
+
+        getDisplayedLabels(){
+            var labels = {};
+            var setTypeLabel = function () {
+                return labelType.getText().then(function(text) {
+                    labels.type = text;
+                });
+            };
+            var setLocationLabel = function () {
+                return labelLocation.getText().then(function(text) {
+                    labels.location = text;
+                });
+            };
+            return setTypeLabel()
+                .then(setLocationLabel)
+                .then(function () {
+                    return labels;
+                })
         },
 
         getEnteredValues(){
