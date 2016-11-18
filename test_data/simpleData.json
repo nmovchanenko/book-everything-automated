@@ -1,0 +1,9 @@
+{
+  "some_text": "some string",
+  "some_number": 12345,
+  "some_array": ["value 1", "value 2", "value 3"],
+  "some_object": {
+    "data_1": "data_1",
+    "data_2": "data_2"
+  }
+}
